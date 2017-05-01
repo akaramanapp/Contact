@@ -1,0 +1,28 @@
+﻿<h2>Contact List</h2>
+<div>
+    <div class="col-sm-2"><input type="text" class="form-control" ng-model="searchText"> </div>
+    <div class="col-sm-2"><a href="#Create" class="btn btn-sm btn-success">Add Contact</a></div>
+    <div class="col-sm-8"></div>
+</div>
+
+<table class="table table-hover" ng-controller="ContactController">
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="contact in data.contacts | filter:searchText">
+            <td>{{contact.Name}}</td>
+            <td>{{contact.Email}}</td>
+            <td>{{contact.Address}}</td>
+            <td>{{contact.PhoneNumber}}</td>
+            <td><a href="#Update/{{contact.ContactId}}">Edit</a> | <a href="#/Contacts" confirmed-click="DeleteContact()" ng-confirm-click="Kaydı silmek istediğinize emin misiniz?">Delete</a></td>
+        </tr>
+
+    </tbody>
+</table>
